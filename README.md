@@ -27,7 +27,7 @@ ReactDOM.render(<Greeting />, document.getElementById("root"));
 
 render method သည် parameter 2 ခု လက်ခံတယ်။ first parameter သည် ကိုယ်သုံးချင်တဲ့ component ကိုထည့်ရပါတယ်။ second
 parameter မှာကတော့ ./public/index.html ထဲက root ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ reactjs သည် single page application
-ဖြစ်တဲ့အတွက်ကြောင့် HTML file သည် တစ်ခုတည်းရှိပါတယ်။ Reactjs သည် HTML တွေလို့ မခေါ်ပါဘူး။ **_JSX_** လို့ ခေါ်ပါတယ်။
+ဖြစ်တဲ့အတွက်ကြောင့် HTML file သည် တစ်ခုတည်းရှိပါတယ်။ Reactjs သည် HTML syntax တွေကို HTML လို့ မခေါ်ပါဘူး။ **_JSX_** လို့ ခေါ်ပါတယ်။
 
 ---
 
@@ -70,7 +70,7 @@ function Greeting() {
 ReactDOM.render(<Greeting />, document.getElementById("root"));
 ```
 
-HTML code သည်် element တစ်ခုထက်ပိုပြီးသုံးချင်ရင် tag တစ်ခုထဲမှာထည့်ပြီးသုံးပေးရတယ်။
+HTML element တွေကို တစ်ခုထက်ပိုသုံးချင်ရင် container(div) တစ်ခုထဲကိုထည့်ပြီး သုံးပေးရပါတယ်။ react သည် component mount လုပ်တဲ့အခါမှာ single element ကို ပဲ mount လုပ်တာဖြစ်တဲ့အတွက်ကြောင့် container တစ်ခုတည်းမှာ ပဲ ထည့်သုံးပေးရတာဖြစ်ပါတယ်။
 
 ---
 
@@ -117,12 +117,13 @@ function Card() {
 }
 ```
 
-react မှာ css ကို external style နဲ့သုံးချင်ရင် css file ကို `import` အရင် လုပ်ပေးရတယ်။ ပြီးမှ ကိုယ်သုံးချင်တဲ့
-classname ကို `className="__"` နဲ့ သုံးပေးရပါတယ်။
+react မှာ css ကို external style နဲ့သုံးချင်ရင် css file ကို `import` အရင် လုပ်ပေးရတယ်။ ပြီးမှ ကိုယ်သုံးချင်တဲ့ classname ကို `className="__"` နဲ့ သုံးပေးရပါတယ်။
 
 ---
 
 #### JSX-CSS
+
+##### Inline Style
 
 ```jsx
 function Card() {
@@ -130,7 +131,25 @@ function Card() {
 }
 ```
 
-react မှာ css properties name တွေကို camelCase နဲ့ သုံးရပါတယ်။
+react မှာ css properties တွေကို camelCase နဲ့ သုံးရပါတယ်။ အထက်က ရေးတဲ့ပုံသည် inline style ဖြစ်ပါတယ်။
+
+##### Internal Style
+
+```jsx
+function Card() {
+  const styles = {
+    title: {
+      fontSize: 18,
+      color: "#999",
+      fontWeight: 900,
+    },
+  };
+
+  return <h1 style={styles.title}>Card Title</h1>;
+}
+```
+
+Internal Style ကို ရေးလျှင် **json format** ဖြစ်တဲ့အတွက် ပြန်ခေါ်သုံးခြင်လျှင် object ထဲက value တွေကို ပြန်ခေါ်သုံးသလို **keyname** နဲ့ ပြန်ခေါ်သုံးပေးရပါတယ်။
 
 ---
 
@@ -144,7 +163,7 @@ function Card() {
 }
 ```
 
-react မှာ JavaScript code တွေကို `{}` ထဲမှာ ရေးပါတယ်။
+react မှာ JavaScript code တွေကို document မှာဖော်ပြချင်လျှင် tag or element တစ်ခုရဲ့ အထဲမှာ `{}` မှာ ရေးပါတယ်။
 
 ---
 
@@ -172,8 +191,7 @@ function Card(props) {
 ```
 
 - **important**
-  - Props သည် Parent to Child ကိုပဲ data passing လုပ်လို့ရပါတယ်။ Props သည် object data type နဲ့ data ပေးပို့တဲ့
-    အတွက်ကြောင့် ပြန်ခေါ်သုံးတဲ့အခါမှာ `props.title` ဆိုပြီး ခေါ်သုံးပေးရပါတယ်။
+  - Props သည် Parent to Child ကိုပဲ data passing လုပ်လို့ရပါတယ်။ Props သည် object data type နဲ့ data ပေးပို့တဲ့ အတွက်ကြောင့် ပြန်ခေါ်သုံးတဲ့အခါမှာ `props.title` ဆိုပြီး ခေါ်သုံးပေးရပါတယ်။
 
 ---
 
@@ -254,7 +272,7 @@ function Card({ image, title, description }) {
 }
 ```
 
-Props ကို **Destructuring** လုပ်ပြီး ခေါ်သုံးလျှင် props keyword ပြန်ခေါ်စရာမလိုပါဘူး။
+Props ကို **Destructuring** လုပ်ပြီး ခေါ်သုံးလျှင် props keyword ပြန်ခေါ်စရာမလိုပါဘူး။ props ထဲမှာပါလာတဲ့ value တွေကိုပဲ ခေါ်သုံးပေးရမှာ ဖြစ်ပါတယ်။
 
 ---
 
