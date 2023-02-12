@@ -509,9 +509,3 @@ import { data1, data2, data3 } from "./datas";
 
 - **Important**
   - multi export လုပ်လျှင် export default နဲ့ ပေးလို့မရပါဘူး။
-
----
-
-### React Hooks
-
-#### useState
