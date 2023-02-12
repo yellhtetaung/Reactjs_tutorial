@@ -163,7 +163,7 @@ function Card() {
 }
 ```
 
-react မှာ JavaScript code တွေကို document မှာဖော်ပြချင်လျှင် tag or element တစ်ခုရဲ့ အထဲမှာ `{}` မှာ ရေးပါတယ်။
+react မှာ JavaScript code တွေကို document မှာဖော်ပြချင်လျှင် tag or element တစ်ခုရဲ့ အထဲမှာ `{}` နဲ့ ရေးပါတယ်။
 
 ---
 
@@ -191,7 +191,7 @@ function Card(props) {
 ```
 
 - **important**
-  - Props သည် Parent to Child ကိုပဲ data passing လုပ်လို့ရပါတယ်။ Props သည် object data type နဲ့ data ပေးပို့တဲ့ အတွက်ကြောင့် ပြန်ခေါ်သုံးတဲ့အခါမှာ `props.title` ဆိုပြီး ခေါ်သုံးပေးရပါတယ်။
+  - Props သည် Parent to Child ကိုပဲ data passing လုပ်လို့ရပါတယ်။ Props သည် **json format** နဲ့ data ပေးပို့တဲ့ အတွက်ကြောင့် ပြန်ခေါ်သုံးတဲ့အခါမှာ `props.title` ဆိုပြီး ခေါ်သုံးပေးရပါတယ်။
 
 ---
 
@@ -294,8 +294,7 @@ function Card({ children }) {
 }
 ```
 
-Props Children တွေကို ခေါ်သုံးတဲ့အခါမှာ object destructuring ဖြစ်တဲ့ `{}` ထဲမှာ **children** ဆိုတဲ့ keyword ကို
-ခေါ်သုံးရပါမယ်။
+Props Children တွေကို ခေါ်သုံးတဲ့အခါမှာ object destructuring ဖြစ်တဲ့ `{}` ထဲမှာ **children** ဆိုတဲ့ keyword ကို ခေါ်သုံးရပါမယ်။
 
 ---
 
